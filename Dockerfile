@@ -7,6 +7,7 @@ COPY spotter_trip_app_backend/requirements.txt .
 
 # Install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install requests
 
 # Copy project
 COPY . .
