@@ -18,3 +18,5 @@ application = get_wsgi_application()
 # This is for Vercel serverless function
 def handler(request, **kwargs):
     return application(request, **kwargs)
+
+app = application
