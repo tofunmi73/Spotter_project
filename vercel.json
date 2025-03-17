@@ -5,6 +5,10 @@
       "src": "spotter_trip_app_backend/spotter_trip_app/wsgi.py",
       "use": "@vercel/python",
       "config": { "wsgi": "spotter_trip_app.wsgi:handler", "runtime": "python3.13.1", "maxLambdaSize": "15mb" }
+    },
+    {
+      "src": "spotter-trip-app-frontend/build/**",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
@@ -13,15 +17,14 @@
       "dest": "spotter_trip_app_backend/spotter_trip_app/wsgi.py"
     },
     {
-        "src": "/static/(.*)",
-        "dest": "spotter_trip_app_backend/staticfiles/$1"
+      "src": "/static/(.*)",
+      "dest": "spotter_trip_app_backend/staticfiles/$1"
     },
     {
-        "src": "/(.*)",
-        "dest": "public/$1"
+      "src": "/(.*)",
+      "dest": "spotter-trip-app-frontend/build/$1"
     }
   ],
   "installCommand": "pip install -r spotter_trip_app_backend/requirements.txt",
-  "buildCommand": "python spotter_trip_app_backend/manage.py collectstatic --noinput && python spotter_trip_app_backend/manage.py migrate",
-  "public": "spotter-trip-app-frontend/build"
+  "buildCommand": "python spotter_trip_app_backend/manage.py collectstatic --noinput && python spotter_trip_app_backend/manage.py migrate"
 }
