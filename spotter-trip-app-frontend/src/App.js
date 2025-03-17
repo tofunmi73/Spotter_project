@@ -116,5 +116,6 @@ function App() {
 }
 
 console.log("NODE_ENV:", process.env.NODE_ENV);
+console.log("API URL being used:", API_URL);
 
 export default App;
