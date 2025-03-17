@@ -22,7 +22,7 @@ function App() {
         
         try {
             // trying to create trip
-            const tripResponse = await axios.post(`${API_URL}/trips/`, formData);
+            const tripResponse = await axios.post(`https://web-production-e88b3.up.railway.app/api/trips/`, formData);
             const tripResponseData = tripResponse.data;
             setTripData(tripResponseData);
             
