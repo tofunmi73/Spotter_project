@@ -25,7 +25,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-m$q0whgt8m^=*s
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DJANGO_DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost 127.0.0.1 web-production-e88b3.up.railway.app').split(' ')
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost', '127.0.0.1', 'web-production-e88b3.up.railway.app').split(' ')
 
 
 # Application definition
@@ -131,7 +131,8 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # CORS_ALLOWED_ORIGINS = [
-#     "http://localhost:3000", # Or your React app's origin
+#     "https://your-frontend-domain.vercel.app",
+#     "http://localhost:3000",
 # ]
 
 CORS_ALLOW_ALL_ORIGINS = True
