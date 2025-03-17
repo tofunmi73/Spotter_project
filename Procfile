@@ -1,1 +1,1 @@
-web: gunicorn spotter_trip_app.wsgi
+web: cd spotter_trip_app_backend && gunicorn spotter_trip_app.wsgi
