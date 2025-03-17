@@ -21,8 +21,9 @@ function App() {
         setError(null);
         
         try {
+            console.log("Making API request to:", `${API_URL}/trips/`);
             // trying to create trip
-            const tripResponse = await axios.post(`https://web-production-e88b3.up.railway.app/api/trips/`, formData);
+            const tripResponse = await axios.post(`${API_URL}/trips/`, formData);
             const tripResponseData = tripResponse.data;
             setTripData(tripResponseData);
             
@@ -115,7 +116,5 @@ function App() {
     );
 }
 
-console.log("NODE_ENV:", process.env.NODE_ENV);
-console.log("API URL being used:", API_URL);
 
 export default App;
