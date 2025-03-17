@@ -4,6 +4,7 @@ import TripForm from './TripForm';
 import MapView from './MapView';
 import LogSheet from './LogSheet';
 import axios from 'axios';
+import API_URL from './config';
 
 function App() {
     const [tripData, setTripData] = useState(null);
@@ -21,15 +22,15 @@ function App() {
         
         try {
             // trying to create trip
-            const tripResponse = await axios.post('http://localhost:8000/api/trips/', formData);
+            const tripResponse = await axios.post(`${API_URL}/trips/`, formData);
             const tripResponseData = tripResponse.data;
             setTripData(tripResponseData);
             
             // trying to geocode all locations
             const [currentLocationResponse, pickupLocationResponse, dropoffLocationResponse] = await Promise.all([
-                axios.get(`http://localhost:8000/api/geocode/?address=${encodeURIComponent(tripResponseData.current_location)}`),
-                axios.get(`http://localhost:8000/api/geocode/?address=${encodeURIComponent(tripResponseData.pickup_location)}`),
-                axios.get(`http://localhost:8000/api/geocode/?address=${encodeURIComponent(tripResponseData.dropoff_location)}`)
+                axios.get(`${API_URL}/geocode/?address=${encodeURIComponent(tripResponseData.current_location)}`),
+                axios.get(`${API_URL}/geocode/?address=${encodeURIComponent(tripResponseData.pickup_location)}`),
+                axios.get(`${API_URL}/geocode/?address=${encodeURIComponent(tripResponseData.dropoff_location)}`)
             ]);
             
             // Setting coordinates

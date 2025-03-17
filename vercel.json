@@ -1,0 +1,22 @@
+{
+    "builds": [
+      {
+        "src": "spotter_trip_app_backend/wsgi.py",
+        "use": "@vercel/python"
+      },
+      {
+        "src": "spotter-trip-app-frontend/build/**",
+        "use": "@vercel/static"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/api/(.*)",
+        "dest": "spotter_trip_app_backend/wsgi.py"
+      },
+      {
+        "src": "/(.*)",
+        "dest": "spotter-trip-app-frontend/build/$1"
+      }
+    ]
+  }
