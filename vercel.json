@@ -4,11 +4,18 @@
     {
       "src": "spotter_trip_app_backend/spotter_trip_app/wsgi.py",
       "use": "@vercel/python",
-      "config": { "wsgi": "spotter_trip_app.wsgi:handler", "runtime": "python3.13.1", "maxLambdaSize": "15mb" }
+      "config": { 
+        "wsgi": "spotter_trip_app.wsgi:handler", 
+        "runtime": "python3.13.1", 
+        "maxLambdaSize": "15mb"
+      }
     },
     {
       "src": "spotter-trip-app-frontend/build/**",
-      "use": "@vercel/static"
+      "use": "@vercel/static",
+      "config": {
+        "outputDirectory": "spotter-trip-app-frontend/build"
+      }
     }
   ],
   "routes": [
