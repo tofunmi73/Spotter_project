@@ -130,10 +130,10 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# CORS_ALLOWED_ORIGINS = [
-#     "https://your-frontend-domain.vercel.app",
-#     "http://localhost:3000",
-# ]
+CORS_ALLOWED_ORIGINS = [
+    "https://spotter-project-i01v56coe-jesutofunmis-projects-fffc9897.vercel.app",
+    "http://localhost:3000",
+]
 
 CORS_ALLOW_ALL_ORIGINS = True
 
