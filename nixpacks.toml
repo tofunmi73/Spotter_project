@@ -1,10 +1,11 @@
 [phases.setup]
-nixPkgs = ["python39", "python39Packages.pip"] 
+nixPkgs = ["python39", "python39Packages.pip"]
 
+[phases.install]
+cmds = [
+    "python -m pip install --upgrade pip",
+    "pip install -r spotter_trip_app_backend/requirements.txt"
+]
 
-[phases.install] 
-cmds = ["python -m pip install --upgrade pip", "pip install -r spotter_trip_app_backend/requirements.txt"] 
-
-
-[start] 
-cmd = "cd spotter_trip_app_backend && python manage.py migrate && python manage.py collectstatic --noinput && gunicorn spotter_trip_app.wsgi"
+[start]
+cmd = "sh -c 'cd spotter_trip_app_backend && python manage.py migrate && python manage.py collectstatic --noinput && gunicorn spotter_trip_app.wsgi'"
